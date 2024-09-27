@@ -46,11 +46,12 @@ PROCPS_NG_CONF_OPTS += --disable-numa
 endif
 
 # w requires utmp.h
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+#ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+#PROCPS_NG_CONF_OPTS += --disable-w
+#else
+#PROCPS_NG_CONF_OPTS += --enable-w
+#endif
 PROCPS_NG_CONF_OPTS += --disable-w
-else
-PROCPS_NG_CONF_OPTS += --enable-w
-endif
 
 # Avoid installing S02sysctl, since openrc provides /etc/init.d/sysctl.
 define PROCPS_NG_INSTALL_INIT_OPENRC
